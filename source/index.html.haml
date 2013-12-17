@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+
+  %body
+    %nav.navbar.navbar-default
+      .navbar-header
+        %a.navbar-brand Opal Playground
+      .container
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              %button.btn.btn-primary#run-code
+                Run Code (Cmd+Enter)
+
+    .row
+      .col-md-6
+        .top-pane#html_pane
+        .bottom-pane#ruby_pane
+
+      .col-md-6
+        .top-pane#css_pane
+        .bottom-pane#result_pane
+          %iframe#result-frame(frameborder="0")
