@@ -5,6 +5,9 @@ activate :sprockets
 
 activate :directory_indexes
 
+activate :relative_assets
+set :relative_links, true
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
