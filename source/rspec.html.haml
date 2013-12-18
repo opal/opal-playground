@@ -1,0 +1,28 @@
+
+!!!
+%html
+  %head
+    %meta(charset="utf-8")
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'playground-rspec'
+    :css
+      .CodeMirror { height: 100% !important; }
+      .CodeMirror-scroll { height: 100% !important; }
+
+  %body
+    %nav.navbar.navbar-default
+      .navbar-header
+        %a.navbar-brand Opal Playground - RSpec
+      .container
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              %button.btn.btn-primary#run-code
+                Run Code (Cmd+Enter)
+
+    .row
+      .col-md-6(style="height: 100%")
+        .top-pane#ruby_pane(style="height: 100%")
+      .col-md-6
+        .top-pane#result_pane(style="height: 100%")
+          %iframe#result-frame(frameborder="0" style="width: 100%; height: 100%")
