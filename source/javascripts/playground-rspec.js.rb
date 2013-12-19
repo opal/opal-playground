@@ -20,13 +20,22 @@ module Playground
 
       @result = Element['#result-frame']
 
-      @ruby.value = RUBY
-
       Element.find('#run-code').on(:click) { run_code }
+      @link = Element.find('#link-code')
+
+      hash = `decodeURIComponent(location.hash)`
+
+      if hash.start_with? '#code:'
+        @ruby.value = hash[6..-1]
+      else
+        @ruby.value = RUBY.strip
+      end
+
       run_code
     end
 
     def run_code
+      @link[:href] = "#code:#{`encodeURIComponent(#{@ruby.value})`}"
       js = Opal.compile @ruby.value
 
       update_iframe(<<-HTML)
@@ -48,6 +57,8 @@ module Playground
           </body>
         </html>
       HTML
+    rescue => e
+      alert "#{e.class}: #{e.message}"
     end
 
     def update_iframe(html)

@@ -1,4 +1,3 @@
-
 !!!
 %html
   %head
@@ -15,10 +14,13 @@
         %a.navbar-brand Opal Playground - RSpec
       .container
         .collapse.navbar-collapse
-          %ul.nav.navbar-nav
+          %ul.nav.navbar-nav(style="padding: 7px")
             %li
               %button.btn.btn-primary#run-code
                 Run Code (Cmd+Enter)
+            %li
+              %a.btn.btn-default#link-code(style="padding: 6px")
+                Link Code
 
     .row
       .col-md-6(style="height: 100%")
